@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GADSProject2020</string>
+    <string name="quit_app">quit</string>
+    <string name="submit">submit</string>
+</resources>

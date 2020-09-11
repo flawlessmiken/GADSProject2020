@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/re_parent">
+
+            <fragment
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:defaultNavHost="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navGraph="@navigation/nav_graph" />
+
+            <ImageView
+                android:id="@+id/im"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.25"
+                android:scaleType="fitXY"
+                android:src="@drawable/ray" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/relLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/relLayout2">
+
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpager_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                </androidx.viewpager.widget.ViewPager>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <RelativeLayout
+                android:id="@+id/relLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="LEADERBOARD"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:layout_weight="1" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/fab"
+                            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_weight="1"
+                            android:layout_marginBottom="2dp"
+                            android:elevation="4dp"
+                            android:text="Submit"
+                            android:textColor="@android:color/black"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+
+                    </LinearLayout>
+
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabs_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="#fff"
+                        app:tabBackground="@drawable/tabselector"
+                        app:tabGravity="center"
+                        app:tabIndicatorColor="@color/colorAccent"
+                        app:tabIndicatorHeight="3dp"
+                        app:tabMode="scrollable"
+                        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+
+                        >
+
+
+                    </com.google.android.material.tabs.TabLayout>
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
