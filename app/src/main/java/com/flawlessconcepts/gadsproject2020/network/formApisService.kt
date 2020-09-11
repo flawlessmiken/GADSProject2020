@@ -1,15 +1,18 @@
 package com.flawlessconcepts.gadsproject2020.network
 
+import com.flawlessconcepts.gadsproject2020.data.submitObj
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 import retrofit2.http.PUT
 
 
 const val FULL_URL =
-    "https://docs.google.com/forms/d/e/1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse"
+    "https://docs.google.com/forms/d/e/"
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
@@ -24,7 +27,7 @@ object SubmitApi {
 
 public interface submitService {
     @FormUrlEncoded
-    @PUT()
+    @POST("1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse")
     fun submit(
         @Field("entry.1877115667") firstname: String,
         @Field("entry.2006916086") lastname: String,

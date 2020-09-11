@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.flawlessconcepts.gadsproject2020.data.submitObj
 import com.flawlessconcepts.gadsproject2020.databinding.ActivitySubmitBinding
 import com.flawlessconcepts.gadsproject2020.network.SubmitApi
 import okhttp3.ResponseBody
@@ -44,6 +45,7 @@ class SubmitActivity : AppCompatActivity() {
                 ).show()
             } else {
                 Toast.makeText(applicationContext, "Validated", Toast.LENGTH_LONG).show()
+                submit(firstName!!, lastName!!, email!!, githuburl!!)
             }
         }
 
@@ -61,15 +63,23 @@ class SubmitActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Toast.makeText(
                             applicationContext,
-                            "response"+ response.body(),
+                            "success"+ response.body(),
                             Toast.LENGTH_LONG
                         ).show()
                     } else {
-
+                        Toast.makeText(
+                            applicationContext,
+                            "not success"+ response.body().toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
                 override fun onFailure(call: Call<Void>, t: Throwable) {
-
+                    Toast.makeText(
+                        applicationContext,
+                        "failed"+ t.message,
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             })
         }
