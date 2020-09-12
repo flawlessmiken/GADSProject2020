@@ -27,6 +27,10 @@ class SubmitActivity : AppCompatActivity() {
         var email: String? = null
         var githuburl: String? = null
 
+        binding.imBack.setOnClickListener(){
+            onBackPressed()
+        }
+
 
 
         binding.fabSubmit.setOnClickListener() {
@@ -43,9 +47,11 @@ class SubmitActivity : AppCompatActivity() {
                     "Please Enter Values Correctly",
                     Toast.LENGTH_LONG
                 ).show()
+
             } else {
                 Toast.makeText(applicationContext, "Validated", Toast.LENGTH_LONG).show()
                 submit(firstName!!, lastName!!, email!!, githuburl!!)
+
             }
         }
 
@@ -66,12 +72,16 @@ class SubmitActivity : AppCompatActivity() {
                             "success"+ response.body(),
                             Toast.LENGTH_LONG
                         ).show()
+                        SuccessDialog.newInstance("SUCCESS","log out proper").show(supportFragmentManager, SuccessDialog.TAG)
+
                     } else {
                         Toast.makeText(
                             applicationContext,
                             "not success"+ response.body().toString(),
                             Toast.LENGTH_LONG
                         ).show()
+                        SuccessDialog.newInstance("FAILURE","log out proper").show(supportFragmentManager, SuccessDialog.TAG)
+
                     }
                 }
                 override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -80,6 +90,9 @@ class SubmitActivity : AppCompatActivity() {
                         "failed"+ t.message,
                         Toast.LENGTH_LONG
                     ).show()
+                    SuccessDialog.newInstance("FAILURE","log out proper").show(supportFragmentManager, SuccessDialog.TAG)
+
+
                 }
             })
         }

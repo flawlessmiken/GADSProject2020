@@ -10,9 +10,6 @@ apply plugin: "androidx.navigation.safeargs"
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
-    dataBinding {
-        enabled = true
-    }
 
     defaultConfig {
         applicationId "com.flawlessconcepts.gadsproject2020"
@@ -38,6 +35,10 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 

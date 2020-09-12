@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
@@ -49,6 +50,12 @@ class SuccessDialog : DialogFragment() {
     private fun setupView(view: View) {
         //view.tvTitle.text = arguments?.getString(KEY_TITLE)
         //view.tvSubTitle.text = arguments?.getString(KEY_SUBTITLE)
+        if (arguments?.getString(KEY_TITLE)=="SUCCESS"){
+            view.findViewById<ImageView>(R.id.imageView3).setImageResource(R.drawable.successv)
+            view.findViewById<TextView>(R.id.tv_success).text ="Submission Successful"
+        }else { view.findViewById<ImageView>(R.id.imageView3).setImageResource(R.drawable.failure)
+            view.findViewById<TextView>(R.id.tv_success).text ="Submission not Successful"
+        }
     }
 
 
