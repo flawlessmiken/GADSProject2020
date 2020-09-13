@@ -72,7 +72,7 @@ fun TextView.setHours(learner: Learner) {
 
 @BindingAdapter("setScoreNCountry")
 fun TextView.setHours(skiller: Skiller) {
-    text = skiller.score.toString() + " Learning Hours, " + skiller.country
+    text = skiller.score.toString() + " Skill IQ Score, " + skiller.country
 }
 
 
